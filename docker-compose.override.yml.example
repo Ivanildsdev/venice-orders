@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ./src:/src
+    ports:
+      - "5069:80"
+
