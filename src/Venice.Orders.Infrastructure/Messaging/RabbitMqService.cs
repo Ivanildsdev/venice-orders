@@ -6,9 +6,6 @@ using Venice.Orders.Application.Interfaces;
 
 namespace Venice.Orders.Infrastructure.Messaging;
 
-/// <summary>
-/// Implementação do serviço de mensageria usando RabbitMQ - será implementado completamente na Fase 4
-/// </summary>
 public class RabbitMqService : IMessageBus, IDisposable
 {
     private readonly IConnection _connection;
@@ -30,7 +27,6 @@ public class RabbitMqService : IMessageBus, IDisposable
         _exchangeName = configuration["RabbitMQ:ExchangeName"] ?? "venice.orders";
         _queueName = configuration["RabbitMQ:QueueName"] ?? "pedido.criado";
 
-        // Configurar exchange e queue
         _channel.ExchangeDeclare(_exchangeName, ExchangeType.Topic, durable: true);
         _channel.QueueDeclare(_queueName, durable: true, exclusive: false, autoDelete: false);
         _channel.QueueBind(_queueName, _exchangeName, "pedido.criado");

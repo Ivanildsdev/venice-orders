@@ -2,9 +2,6 @@ using FluentValidation.Results;
 
 namespace Venice.Orders.Application.Exceptions;
 
-/// <summary>
-/// Exceção lançada quando ocorrem erros de validação
-/// </summary>
 public class ValidationException : Exception
 {
     public IEnumerable<ValidationFailure> Errors { get; }

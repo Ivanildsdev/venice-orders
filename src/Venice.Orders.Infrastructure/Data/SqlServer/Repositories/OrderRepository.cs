@@ -5,9 +5,6 @@ using Venice.Orders.Infrastructure.Data.SqlServer;
 
 namespace Venice.Orders.Infrastructure.Data.SqlServer.Repositories;
 
-/// <summary>
-/// Repositório de pedidos para SQL Server - será implementado completamente na Fase 4
-/// </summary>
 public class OrderRepository : IOrderRepository
 {
     private readonly OrdersDbContext _context;

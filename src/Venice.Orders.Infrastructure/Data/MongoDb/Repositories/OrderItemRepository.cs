@@ -5,9 +5,6 @@ using Venice.Orders.Infrastructure.Data.MongoDb;
 
 namespace Venice.Orders.Infrastructure.Data.MongoDb.Repositories;
 
-/// <summary>
-/// Repositório de itens de pedido para MongoDB - será implementado completamente na Fase 4
-/// </summary>
 public class OrderItemRepository : IOrderItemRepository
 {
     private readonly MongoDbContext _context;

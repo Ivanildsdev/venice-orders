@@ -3,9 +3,6 @@ using Venice.Orders.Domain.Entities;
 
 namespace Venice.Orders.Infrastructure.Data.MongoDb;
 
-/// <summary>
-/// Contexto MongoDB - será implementado completamente na Fase 4
-/// </summary>
 public class MongoDbContext
 {
     private readonly IMongoDatabase _database;

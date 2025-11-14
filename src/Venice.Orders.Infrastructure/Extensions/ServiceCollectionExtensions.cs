@@ -15,17 +15,8 @@ using Venice.Orders.Application.Interfaces;
 
 namespace Venice.Orders.Infrastructure.Extensions;
 
-/// <summary>
-/// Extensões para configuração de serviços da camada Infrastructure
-/// </summary>
 public static class ServiceCollectionExtensions
 {
-    /// <summary>
-    /// Adiciona todos os serviços necessários da camada Infrastructure
-    /// </summary>
-    /// <param name="services">Coleção de serviços</param>
-    /// <param name="configuration">Configuração da aplicação</param>
-    /// <returns>Coleção de serviços para encadeamento</returns>
     public static IServiceCollection AddInfrastructure(
         this IServiceCollection services,
         IConfiguration configuration)

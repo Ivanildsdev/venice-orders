@@ -4,9 +4,6 @@ using Venice.Orders.Application.Interfaces;
 
 namespace Venice.Orders.Infrastructure.Cache;
 
-/// <summary>
-/// Implementação do serviço de cache usando Redis - será implementado completamente na Fase 4
-/// </summary>
 public class RedisCacheService : ICacheService
 {
     private readonly IConnectionMultiplexer _redis;

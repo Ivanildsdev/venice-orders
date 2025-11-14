@@ -11,11 +11,9 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        // Order -> OrderDto
         CreateMap<Order, OrderDto>()
-            .ForMember(dest => dest.Items, opt => opt.Ignore()); // Items serão mapeados separadamente
+            .ForMember(dest => dest.Items, opt => opt.Ignore());
 
-        // OrderItem -> OrderItemDto
         CreateMap<OrderItem, OrderItemDto>();
     }
 }

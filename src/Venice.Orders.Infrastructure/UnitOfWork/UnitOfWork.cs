@@ -8,9 +8,6 @@ using Venice.Orders.Infrastructure.Data.SqlServer.Repositories;
 
 namespace Venice.Orders.Infrastructure.UnitOfWork;
 
-/// <summary>
-/// Implementação do Unit of Work - será implementado completamente na Fase 4
-/// </summary>
 public class UnitOfWork : IUnitOfWork
 {
     private readonly OrdersDbContext _sqlContext;
@@ -41,12 +38,7 @@ public class UnitOfWork : IUnitOfWork
     {
         try
         {
-            // Commit SQL Server (transação)
             await _sqlContext.SaveChangesAsync(cancellationToken);
-            
-            // MongoDB não suporta transações ACID tradicionais,
-            // mas podemos garantir que a operação foi concluída
-            // Se houver erro, lançar exceção para rollback do SQL Server
             
             return true;
         }
@@ -59,7 +51,6 @@ public class UnitOfWork : IUnitOfWork
 
     public async Task RollbackAsync(CancellationToken cancellationToken = default)
     {
-        // Rollback SQL Server
         var entries = _sqlContext.ChangeTracker.Entries()
             .Where(e => e.State != EntityState.Unchanged)
             .ToList();
