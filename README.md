@@ -1,10 +1,10 @@
 # Venice Orders - Microserviço de Pedidos
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 Venice Orders é um microserviço API REST desenvolvido em .NET 8 para gerenciamento de pedidos, integrando múltiplas tecnologias seguindo boas práticas de arquitetura e design.
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 O projeto segue os princípios de **Clean Architecture** com separação clara de responsabilidades em camadas:
 
@@ -25,7 +25,7 @@ Venice.Orders.Infrastructure (Data Access, External Services)
 - **Venice.Orders.Infrastructure**: Implementações concretas de repositórios, serviços externos (SQL Server, MongoDB, RabbitMQ, Redis). Depende do Domain e Application.
 - **Venice.Orders.Api**: Controllers REST, middleware, configuração. Depende de todas as outras camadas.
 
-## 🎯 Decisões Técnicas e Arquiteturais
+## Decisões Técnicas e Arquiteturais
 
 ### Arquitetura e Padrões de Design
 
@@ -115,7 +115,7 @@ Venice.Orders.Infrastructure (Data Access, External Services)
 - **Manutenibilidade**: Código mais limpo e fácil de manter
 
 
-## 📦 Tecnologias
+## Tecnologias
 
 - **.NET 8**: Framework principal
 - **SQL Server**: Banco relacional para dados principais do pedido
@@ -126,7 +126,7 @@ Venice.Orders.Infrastructure (Data Access, External Services)
 - **xUnit**: Framework de testes
 - **JWT**: Autenticação e autorização
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 venice-orders/
@@ -186,29 +186,29 @@ venice-orders/
 └── README.md                           # Este arquivo
 ```
 
-## ✅ Status do Projeto
+## Status do Projeto
 
 ### Funcionalidades Implementadas
 
-- ✅ **Clean Architecture** com 4 camadas bem definidas e extension methods organizados
-- ✅ **Domain-Driven Design** com entidades ricas, eventos de domínio e classe base `Entity`
-- ✅ **CQRS** com MediatR (Commands e Queries separados)
-- ✅ **Repository Pattern** + Unit of Work para múltiplos bancos
-- ✅ **Armazenamento Híbrido**: SQL Server (Orders) + MongoDB (OrderItems)
-- ✅ **Cache Distribuído** com Redis e implementação in-memory para testes
-- ✅ **Message Broker** com RabbitMQ para eventos assíncronos
-- ✅ **Autenticação JWT** com validação completa e rate limiting
-- ✅ **Validação** com FluentValidation em múltiplas camadas
-- ✅ **Swagger/OpenAPI** com documentação completa e autenticação JWT
-- ✅ **Health Checks** para todos os serviços externos
-- ✅ **Testes Unitários** e de Integração organizados na pasta `tests/`
-- ✅ **Migrations Automáticas** do EF Core na inicialização
-- ✅ **Security Headers** configurados (OWASP Top 10)
-- ✅ **Rate Limiting** global e específico para login
-- ✅ **Exception Handling** centralizado com middleware
-- ✅ **Logging Estruturado** com Serilog
+-  **Clean Architecture** com 4 camadas bem definidas e extension methods organizados
+-  **Domain-Driven Design** com entidades ricas, eventos de domínio e classe base `Entity`
+-  **CQRS** com MediatR (Commands e Queries separados)
+-  **Repository Pattern** + Unit of Work para múltiplos bancos
+-  **Armazenamento Híbrido**: SQL Server (Orders) + MongoDB (OrderItems)
+-  **Cache Distribuído** com Redis e implementação in-memory para testes
+-  **Message Broker** com RabbitMQ para eventos assíncronos
+-  **Autenticação JWT** com validação completa e rate limiting
+-  **Validação** com FluentValidation em múltiplas camadas
+-  **Swagger/OpenAPI** com documentação completa e autenticação JWT
+-  **Health Checks** para todos os serviços externos
+-  **Testes Unitários** e de Integração organizados na pasta `tests/`
+-  **Migrations Automáticas** do EF Core na inicialização
+-  **Security Headers** configurados (OWASP Top 10)
+-  **Rate Limiting** global e específico para login
+-  **Exception Handling** centralizado com middleware
+-  **Logging Estruturado** com Serilog
 
-## 🚀 Como Executar com Docker
+##  Como Executar com Docker
 
 ### Pré-requisitos
 
@@ -268,10 +268,10 @@ docker-compose logs -f sqlserver
 
 A aplicação irá automaticamente:
 
-- ✅ Aplicar migrations do EF Core no SQL Server
-- ✅ Criar índices no MongoDB
-- ✅ Configurar exchanges e queues no RabbitMQ
-- ✅ Configurar health checks para todos os serviços
+-  Aplicar migrations do EF Core no SQL Server
+-  Criar índices no MongoDB
+-  Configurar exchanges e queues no RabbitMQ
+-  Configurar health checks para todos os serviços
 
 #### 6. Autenticação
 
@@ -369,16 +369,16 @@ dotnet test --verbosity normal
 ```
 
 
-## 🔐 Segurança
+## Segurança
 
 ### Proteções Implementadas (OWASP Top 10)
 
-- ✅ **A01 - Broken Access Control**: Autenticação JWT obrigatória em todos os endpoints protegidos
-- ✅ **A02 - Cryptographic Failures**: HTTPS redirection, JWT com algoritmo seguro (HMAC SHA256)
-- ✅ **A03 - Injection**: Proteção contra SQL Injection (EF Core) e NoSQL Injection (MongoDB Driver tipado)
-- ✅ **A05 - Security Misconfiguration**: Security headers configurados (X-Frame-Options, X-Content-Type-Options, HSTS, CSP)
-- ✅ **A07 - Authentication Failures**: Rate limiting no endpoint de login (5 tentativas/minuto), validação completa de JWT
-- ✅ **A09 - Logging Failures**: Serilog com logging estruturado e health checks
+-  **A01 - Broken Access Control**: Autenticação JWT obrigatória em todos os endpoints protegidos
+-  **A02 - Cryptographic Failures**: HTTPS redirection, JWT com algoritmo seguro (HMAC SHA256)
+-  **A03 - Injection**: Proteção contra SQL Injection (EF Core) e NoSQL Injection (MongoDB Driver tipado)
+-  **A05 - Security Misconfiguration**: Security headers configurados (X-Frame-Options, X-Content-Type-Options, HSTS, CSP)
+-  **A07 - Authentication Failures**: Rate limiting no endpoint de login (5 tentativas/minuto), validação completa de JWT
+-  **A09 - Logging Failures**: Serilog com logging estruturado e health checks
 
 ### Medidas de Segurança
 
@@ -389,6 +389,6 @@ dotnet test --verbosity normal
 - **Swagger**: Disponível apenas em ambiente de desenvolvimento
 - **Validação de Tamanho**: Limite de 100 itens por coleção em requisições
 
-## 📝 Licença
+## Licença
 
 Este projeto foi desenvolvido como teste técnico para processo seletivo Venice por Ivan Santos em 14/11/2025.
