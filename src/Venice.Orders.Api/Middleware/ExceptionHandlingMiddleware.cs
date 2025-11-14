@@ -29,8 +29,49 @@ public class ExceptionHandlingMiddleware
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Unhandled exception: {Message}", ex.Message);
+            LogException(ex);
             await HandleExceptionAsync(context, ex);
+        }
+    }
+
+    private void LogException(Exception exception)
+    {
+        switch (exception)
+        {
+            case ValidationException validationException:
+                _logger.LogWarning(
+                    validationException,
+                    "Validation error occurred: {Message}",
+                    validationException.Message);
+                break;
+
+            case NotFoundException notFoundException:
+                _logger.LogInformation(
+                    notFoundException,
+                    "Resource not found: {Message}",
+                    notFoundException.Message);
+                break;
+
+            case DomainException domainException:
+                _logger.LogWarning(
+                    domainException,
+                    "Domain error occurred: {Message}",
+                    domainException.Message);
+                break;
+
+            case UnauthorizedAccessException unauthorizedException:
+                _logger.LogWarning(
+                    unauthorizedException,
+                    "Unauthorized access attempt: {Message}",
+                    unauthorizedException.Message);
+                break;
+
+            default:
+                _logger.LogError(
+                    exception,
+                    "Unhandled exception occurred: {Message}",
+                    exception.Message);
+                break;
         }
     }
 
