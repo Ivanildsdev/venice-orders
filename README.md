@@ -391,4 +391,4 @@ dotnet test --verbosity normal
 
 ## Licença
 
-Este projeto foi desenvolvido como teste técnico para processo seletivo Venice por Ivan Santos em 14/11/2025.
+Este projeto foi desenvolvido como teste técnico para processo seletivo Venice por Ivan Santos entre 13/11 e 14/11/2025.
